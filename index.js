@@ -8,8 +8,6 @@ Promise.all([
     faceapi.nets.faceExpressionNet.loadFromUri(modelLink)
   ]).then(startVideo)
 
-import * as faceapi from 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api';
-
 // get canvas element
 const canvas = document.getElementById('root')
 
