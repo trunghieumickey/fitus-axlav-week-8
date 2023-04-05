@@ -17,7 +17,7 @@ navigator.mediaDevices.getUserMedia({ video: true })
 // detect faces and draw bounding boxes every 100 ms
 setInterval(async () => {
   // get the face detections from the video element
-  const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions({ scoreThreshold: 0.1 }))
+  const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions({ scoreThreshold: 0.01 }))
 
   // resize the canvas to match the video size
   const displaySize = { width: video.width, height: video.height };
