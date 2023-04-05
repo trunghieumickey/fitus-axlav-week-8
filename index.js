@@ -14,10 +14,10 @@ navigator.mediaDevices.getUserMedia({ video: true })
   .then(stream => video.srcObject = stream)
   .catch(err => console.error(err));
 
-// detect faces and draw bounding boxes every 100 ms
-setInterval(async () => {
+// detect faces and draw bounding boxes using requestAnimationFrame
+async function detectAndDraw() {
   // get the face detections from the video element
-  const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions({ scoreThreshold: 0.05 }))
+  const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
 
   // resize the canvas to match the video size
   const displaySize = { width: video.width, height: video.height };
@@ -26,10 +26,16 @@ setInterval(async () => {
   // clear the previous canvas content
   canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
-  // draw the video frame on the canvas
-  canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
-
   // draw the bounding boxes on the canvas
   const resizedDetections = faceapi.resizeResults(detections, displaySize);
   faceapi.draw.drawDetections(canvas, resizedDetections);
-}, 100);
+
+  // draw the video frame on the canvas
+  canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
+
+  // request another animation frame
+  requestAnimationFrame(detectAndDraw);
+}
+
+// start the detection and drawing loop
+requestAnimationFrame(detectAndDraw);
