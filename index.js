@@ -1,9 +1,11 @@
 // load face-api.js models
+const modelLink = "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights"
+
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/models'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/models'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/models'),
-    faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/models')
+    faceapi.nets.tinyFaceDetector.loadFromUri(modelLink),
+    faceapi.nets.faceLandmark68Net.loadFromUri(modelLink),
+    faceapi.nets.faceRecognitionNet.loadFromUri(modelLink),
+    faceapi.nets.faceExpressionNet.loadFromUri(modelLink)
   ]).then(startVideo)
 
 import * as faceapi from 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api';
