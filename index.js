@@ -26,6 +26,9 @@ setInterval(async () => {
   // clear the previous canvas content
   canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
+  // draw the video frame on the canvas
+  canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
+
   // draw the bounding boxes on the canvas
   const resizedDetections = faceapi.resizeResults(detections, displaySize);
   faceapi.draw.drawDetections(canvas, resizedDetections);
