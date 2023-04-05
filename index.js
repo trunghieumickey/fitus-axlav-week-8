@@ -10,7 +10,7 @@ Promise.all([
 const canvas = document.getElementById('root')
 
 // create video element from URL
-const videoURL = 'https://github.com/tensorflow/tfjs-models/raw/master/pose-detection/test_data/pose_squats.mp4'
+const videoURL = 'https://raw.githubusercontent.com/tensorflow/tfjs-models/master/pose-detection/test_data/pose_squats.mp4'
 const video = document.createElement('video')
 video.src = videoURL
 video.crossOrigin = 'anonymous'
