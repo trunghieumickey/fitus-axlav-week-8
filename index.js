@@ -2,10 +2,10 @@
 const modelLink = "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights"
 
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri(modelLink),
-    faceapi.nets.faceLandmark68Net.loadFromUri(modelLink),
-    faceapi.nets.faceRecognitionNet.loadFromUri(modelLink),
-    faceapi.nets.faceExpressionNet.loadFromUri(modelLink)
+    faceapi.nets.tinyYolov2.loadFromUri(modelLink),
+    // faceapi.nets.faceLandmark68Net.loadFromUri(modelLink),
+    // faceapi.nets.faceRecognitionNet.loadFromUri(modelLink),
+    // faceapi.nets.faceExpressionNet.loadFromUri(modelLink)
   ]).then(startVideo)
 
 import * as faceapi from 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api';
